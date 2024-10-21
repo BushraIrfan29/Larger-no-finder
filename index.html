@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Larger Number Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input {
+            margin: 10px;
+            padding: 10px;
+            width: 80%;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Larger Number Finder</h1>
+        <input type="number" id="number1" placeholder="Enter first number" required>
+        <input type="number" id="number2" placeholder="Enter second number" required>
+        <br>
+        <button onclick="findLargerNumber()">Find Larger Number</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function findLargerNumber() {
+            const num1 = parseFloat(document.getElementById("number1").value);
+            const num2 = parseFloat(document.getElementById("number2").value);
+            let resultText;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                resultText = "Please enter valid numbers.";
+            } else if (num1 > num2) {
+                resultText = `The larger number is: ${num1}`;
+            } else if (num2 > num1) {
+                resultText = `The larger number is: ${num2}`;
+            } else {
+                resultText = "Both numbers are equal.";
+            }
+
+            document.getElementById("result").innerText = resultText;
+        }
+    </script>
+</body>
+</html>
